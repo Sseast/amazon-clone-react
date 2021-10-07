@@ -22,8 +22,6 @@ function CheckoutProduct({
 
   const dispatch = useDispatch();
   const addItemToBasket = () => {
-    console.log("remove");
-
     const product = {
       id,
       title,
@@ -36,8 +34,6 @@ function CheckoutProduct({
     dispatch(addToBasket(product));
   };
   const removeItemFromBasket = () => {
-    console.log("remove");
-    console.log("id : " + { id });
     dispatch(removeFromBasket({ id }));
   };
 

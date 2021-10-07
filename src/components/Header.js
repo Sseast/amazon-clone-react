@@ -8,76 +8,104 @@ import { signIn, signOut, useSession } from "next-auth/client";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import { selectItems } from "../slices/basketSlice";
-function Header() {
+
+import { FaInstagram } from "react-icons/fa";
+import { FiFacebook } from "react-icons/fi";
+import { AiOutlineMail } from "react-icons/ai";
+import { HiOutlineShoppingCart } from "react-icons/hi";
+
+function Header({ data }) {
   const [session] = useSession();
   const router = useRouter();
   const items = useSelector(selectItems);
 
-  return (
-    <header>
-      {/* Top Nav */}
-      <div className="flex items-center flex-grow p-1 py-2 bg-amazon_blue">
-        <div className="flex items-center flex-grow mt-2 sm:flex-grow-0">
-          <Image
-            onClick={() => router.push("/")}
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png"
-            width={150}
-            height={40}
-            objectFit="contain"
-            className="cursor-pointer "
-          />
-        </div>
-        {/* Search */}
-        <div className="items-center flex-grow hidden h-10 bg-yellow-400 rounded-md cursor-pointer hover:bg-yellow-500 sm:flex">
-          <input
-            className="flex-grow flex-shrink w-6 h-full p-2 focus:outline-none rounded-l-md"
-            type="text"
-          />
-          <SearchIcon className="h-12 p-4" />
-        </div>
-        {/* Right */}
-        <div className="flex items-center mx-6 space-x-6 text-xs text-white whitespace-nowrap">
-          <div onClick={!session ? signIn : signOut} className="link">
-            {session ? `Hello, ${session.user.name}` : "Sign In"}
-            <p className="font-extrabold md:text-sm">Account & Lists</p>
-          </div>
-          <div onClick={() => router.push("/orders")} className="link">
-            <p>Returns</p>
-            <p className="font-extrabold md:text-sm">& Orders</p>
-          </div>
-          <div
-            onClick={() => router.push("/checkout")}
-            className="relative flex items-center link "
-          >
-            <span className="absolute top-0 right-0 w-4 h-4 font-extrabold text-center text-black bg-yellow-400 rounded-full align-center md:right-10">
-              {items.length}
-            </span>
-            <ShoppingCartIcon className="h-10" />
-            <p className="hidden mt-2 font-extrabold md:text-sm md:inline">
-              Basket
-            </p>
-          </div>
-        </div>
-      </div>
-      {/* Bottom nav */}
-      <div className="flex items-center p-2 pl-6 space-x-3 text-sm text-white bg-amazon_blue-light">
-        <p className="flex items-center link">
-          <MenuIcon className="h-6 mr-1"></MenuIcon>All
-        </p>
-        <p className="link">Prime Video</p>
-        <p className="link">Amazon Business</p>
-        <p className="link">Today's Deals</p>
-        {/* Hidden */}
-        <p className="hidden link lg:inline-flex">Electronics</p>
-        <p className="hidden link lg:inline-flex">Food & Grocery</p>
-        <p className="hidden link lg:inline-flex">Prime</p>
-        <p className="hidden link lg:inline-flex">Buy Again</p>
-        <p className="hidden link lg:inline-flex">Shopper Toolkit</p>
-        <p className="hidden link lg:inline-flex">Health & Personal Care</p>
-      </div>
+  const Mailto = ({ email, subject = "", body = "", children }) => {
+    let params = subject || body ? "?" : "";
+    if (subject) params += `subject=${encodeURIComponent(subject)}`;
+    if (body) params += `${subject ? "&" : ""}body=${encodeURIComponent(body)}`;
 
-      {/* Top Nav */}
-      <div></div>
+    return <a href={`mailto:${email}${params}`}>{children}</a>;
+  };
+
+  if (data) {
+    var series = data.projects.map((project) => {
+      return (
+        <li key={project.title} className="ml-1 list-none link">
+          <p
+            className="link"
+            onClick={() => router.push(`/series/${project.url}`)}
+          >
+            <i className={project.className}>{project.title}</i>
+          </p>
+        </li>
+      );
+    });
+  }
+  return (
+    <header className="h-full">
+      <div className="items-center w-full h-full p-4 bg-white ">
+        <div
+          onClick={() => router.push("/")}
+          className="flex items-center flex-grow link sm:flex-grow-0"
+        >
+          <h1 className="text-lg font-bold uppercase md:text-2xl font-montserrat ">
+            Thibault Ayad
+          </h1>
+        </div>
+        <div onClick={() => router.push(`/`)} className="text-xs link">
+          <p className="">Series</p>
+          <p className="">{series}</p>
+        </div>
+        <div onClick={() => router.push("/prints")} className="text-xs link">
+          <p className="">Prints</p>
+        </div>
+        <div onClick={() => router.push("/about")} className="text-xs link">
+          <p className="">About</p>
+        </div>
+        <div onClick={() => router.push("/contact")} className="text-xs link">
+          <p className="">Contact</p>
+        </div>
+        <div className="flex items-center justify-around pt-4 text-lg align-center ">
+          <a
+            href="https://www.instagram.com/dayaboti/"
+            target="_blank"
+            className="text-gray-500 link hover:text-black"
+          >
+            <FaInstagram />
+          </a>
+          <a target="_blank" className="text-gray-500 link hover:text-black">
+            <Mailto
+              target="_top"
+              email="ayadguillaume@gmail.com"
+              subject="I'm interested with your work."
+              body="Hello world!"
+            >
+              <AiOutlineMail />
+            </Mailto>
+          </a>
+        </div>
+
+        {/* <div onClick={!session ? signIn : signOut} className="flex link">
+          {session ? `Sign out` : "Sign In"}
+        </div> */}
+
+        {items.length ? (
+          <div className="flex w-auto ">
+            <div
+              onClick={() => router.push("/checkout")}
+              className="relative flex items-center link "
+            >
+              <HiOutlineShoppingCart className="text-3xl"></HiOutlineShoppingCart>
+              <span className="absolute w-5 h-5 font-semibold text-center text-black align-middle bg-gray-300 rounded-full -top-1 -right-2 text-2xs align-center">
+                {items.length}
+              </span>
+              {/* <p className="hidden mt-2 md:inline">Basket</p> */}
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
+      </div>
     </header>
   );
 }

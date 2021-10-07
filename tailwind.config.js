@@ -7,6 +7,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      fontFamily: {
+        montserrat: ['"Montserrat"'],
+      },
       colors: {
         amazon_blue: {
           light: "#232F3E",

@@ -1,25 +1,40 @@
 import Head from "next/head";
-import Banner from "../components/Banner";
 import Header from "../components/Header";
 import ProductFeed from "../components/ProductFeed";
+import React, { useEffect, useState } from "react";
 
+import path from "path";
+// import matter from "gray-matter";
+// import marked from "marked";
+import Link from "next/link";
 import { getSession } from "next-auth/client";
+import Image from "next/image";
 
-export default function Home({ products, session }) {
+export default function Home({ posts, products, session }) {
+  const [resumeData, setResumeData] = useState({});
+  const [selectedSerie, setSelectedSerie] = useState("New York, USA");
+
+  useEffect(() => {
+    fetch("/resumeData.json")
+      .then((res) => res.json())
+      .then((data) => {
+        setResumeData(data);
+      });
+  }, []);
   return (
-    <div className="bg-gray-100 ">
+    <>
       <Head>
-        <title>Amazon 2.0</title>
+        <title>Thibault Ayad | Home</title>
+        <meta name="keywords" content="photos prints" />
       </Head>
-      {/* Header Component */}
-      <Header></Header>
-      <main className="mx-auto max-w-screen-2xl">
-        {/* Banner */}
-        <Banner></Banner>
-        {/* Product Feed */}
-        <ProductFeed products={products}></ProductFeed>
-      </main>
-    </div>
+      <div className="flex bg-gray-100">
+        {/* Header Component */}
+        {/* <Header data={resumeData.series}></Header> */}
+        <div>
+          <Image src="/DSC_0165.jpg" width="300 " height="300"></Image>
+        </div>
+      </div>
+    </>
   );
 }
 

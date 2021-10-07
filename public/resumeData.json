@@ -1,0 +1,130 @@
+{
+  "main": {
+    "name": "Guillaume Ayad",
+    "occupation": "React Freelance",
+    "description": "",
+    "image": "https://www.letrot.com/photos/personnes/guy-merlino_Ymd5bAEFaw.jpg",
+    "bio": "I'm a photographer based in Los Angeles, California who specializes in photographing architecture; I also have a mild airplane obsession.I grew up in Ipswich, Massachusetts: a small coastal town that's one part postcard and one part dramatic Boston movie.  Here I was lucky enough to meet a number of amazing teachers who opened my eyes to the world of art and design; this would alter the path of my life in more ways than I could ever imagine. After studying studio art and environmental science at the University of Vermont,  I moved to Lake Tahoe, California, in hopes of becoming a professional snowboarder (graduating right after the '08 recession made this seem like a great idea). A couple of years and too many injuries later, I found myself taking up an offer to photograph a few homes for a client I'd met while recuperating. What started by chance turned out to be the perfect mix of technical challenge and creative outlet, and I decided right there and then that it absolutely must be my career. In 2018, I founded the Architectural Photography Almanac, a resource for architecture photographers and those in the architecture industry seeking to learn about the craft and theory of architectural photography.",
+    "contactmessage": "Get in touch with me!",
+    "email": "ayadthibault@gmail.com",
+    "phone": "+33 6 76 17 80 87",
+    "address": {
+      "street": "45 rue de Clignancourt",
+      "city": "Paris",
+      "state": "France",
+      "zip": "75018"
+    },
+    "website": "https://dashboard.heroku.com/apps/atelier-ayad",
+    "resumedownload": "https://we.tl/t-qTPanyhHX1",
+    "social": [
+
+      {
+        "name": "linkedin",
+        "url": "https://www.linkedin.com/in/guillaume-ayad-6747bbb6/",
+        "className": "fa fa-linkedin"
+      },
+      {
+        "name": "instagram",
+        "url": "https://www.instagram.com/seast.ad/",
+        "className": "fa fa-instagram"
+      },
+      {
+        "name": "github",
+        "url": "https://github.com/Sseast/",
+        "className": "fa fa-github"
+      }
+    ]
+  },
+  "resume": {
+    "skillmessage": "My Programming Language Proficiency",
+    "education": [
+      {
+        "school": "Grenoble School of Management - FR",
+        "degree": "Specialized Master, Management Technology & Inovation",
+        "graduated": "July 2017",
+        "description": "Helped a local startup to find commercial opportunities to grow"
+      },
+      {
+        "school": "EFREI Paris - FR",
+        "degree": "Master of Science in Computer Science",
+        "graduated": "July 2016",
+        "description": "Had the opportunity to study a semester abroad in California"
+      }
+    ],
+    "work": [
+      {
+        "company": "Freelance",
+        "title": "React Developer",
+        "years": "Nov 2020 - Today",
+        "description": "As I've started my own business selling prints at Montmartre, I challenged myself at creating a e-Commerce website using ReactJS."
+      },
+      {
+        "company": "Accenture",
+        "title": "Product Owner",
+        "years": "Nov 2017 - Nov 2020",
+        "description": "Enhanced national foreigns and asylum-seekers digital experience.  23 200€ worth of stamps reimbursed. 276 600 long-stay visa delivered since VLS-TS deployment."
+      },
+      {
+        "company": "Sopra Steria",
+        "title": "Change Management",
+        "years": "Mar 2017 - Nov 2017",
+        "description": "I participated in the deployment of an Health Information System across 4 hospitals of Assistance Publique - Hôpitaux de Paris (AP-HP)."
+      }
+    ],
+    "skills": [
+      {
+        "name": "ReactJs",
+        "level": "80%"
+      },
+      {
+        "name": "Python",
+        "level": "50%"
+      },
+      {
+        "name": "Git",
+        "level": "70%"
+      },
+      {
+        "name": "JavaScript",
+        "level": "80%"
+      },
+      {
+        "name": "Web Development",
+        "level": "70%"
+      }
+    ]
+  },
+  "series": {
+    "projects": [
+      {
+        "title": "New York, USA",
+        "category": "",
+        "image": "shop.jpg",
+				"photos":[
+					{"title":"1", "type":""},
+					{"title":"2", "type":""},
+					{"title":"3", "type":""}
+				],
+        "url": "1"
+      },
+      {
+        "title": "Las Vegas, USA",
+        "category": "",
+        "image": "whatsapp.jpg",
+        "url": "2"
+      },
+      {
+        "title": "San Francisco, USA",
+        "category": "",
+        "image": "whatsapp.jpg",
+        "url": "3"
+      },
+      {
+        "title": "Tokyo, JPN",
+        "category": "",
+        "image": "whatsapp.jpg",
+        "url": "4"
+      }
+    ]
+  }
+}
